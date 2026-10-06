@@ -62,7 +62,7 @@ const EditorPreviewArazzo = ({ editorSelectors, editorActions }) => {
 
   return (
     <section className="swagger-editor__editor-preview-arazzo">
-      <arazzo-viewer ref={ref} />
+      <arazzo-viewer ref={ref} theme="light" />
     </section>
   );
 };
