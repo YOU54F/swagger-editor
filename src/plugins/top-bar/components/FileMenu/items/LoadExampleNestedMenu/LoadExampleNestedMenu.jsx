@@ -64,6 +64,10 @@ const LoadExampleNestedMenu = (props) => {
     'TopBarFileMenuLoadExampleNestedMenuArazzo100BNPLMenuItem',
     true
   );
+  const Arazzo110AsyncAPIMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo110AsyncAPIMenuItem',
+    true
+  );
   const Arazzo100FAPIPARMenuItem = getComponent(
     'TopBarFileMenuLoadExampleNestedMenuArazzo100FAPIPARMenuItem',
     true
@@ -114,6 +118,9 @@ const LoadExampleNestedMenu = (props) => {
   const handleArazzo100FAPIPARClick = useCallback(async (event) => {
     await loadExampleNestedMenuHandler.current.loadArazzo100FAPIPARFixture(event);
   }, []);
+  const handleArazzo110AsyncAPIClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo110AsyncAPIFixture(event);
+  }, []);
 
   return (
     <>
@@ -139,6 +146,7 @@ const LoadExampleNestedMenu = (props) => {
         <Arazzo100OAuthMenuItem onClick={handleArazzo100OAuthClick} />
         <Arazzo100BNPLMenuItem onClick={handleArazzo100BNPLClick} />
         <Arazzo100FAPIPARMenuItem onClick={handleArazzo100FAPIPARClick} />
+        <Arazzo110AsyncAPIMenuItem onClick={handleArazzo110AsyncAPIClick} />
       </DropDownMenuNested>
     </>
   );

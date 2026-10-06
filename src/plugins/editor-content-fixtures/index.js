@@ -11,6 +11,7 @@ import selectAPIDesignSystemsYAML from './selectors/selectAPIDesignSystemsYAML.j
 import selectArazzo100LoginAndRetrievePetsYAML from './selectors/selectArazzo100LoginAndRetrievePetsYAML.js';
 import selectArazzo100PetCouponsYAML from './selectors/selectArazzo100PetCouponsYAML.js';
 import selectArazzo100OAuthYAML from './selectors/selectArazzo100OAuthYAML.js';
+import selectArazzo110AsyncAPIYAML from './selectors/selectArazzo110AsyncAPIYAML.js';
 import selectArazzo100BNPLYAML from './selectors/selectArazzo100BNPLYAML.js';
 import selectArazzo100FAPIPARYAML from './selectors/selectArazzo100FAPIPARYAML.js';
 // test
@@ -32,6 +33,7 @@ const EditorContentFixturesPlugin = () => ({
         selectArazzo100LoginAndRetrievePetsYAML,
         selectArazzo100PetCouponsYAML,
         selectArazzo100OAuthYAML,
+        selectArazzo110AsyncAPIYAML,
         selectArazzo100BNPLYAML,
         selectArazzo100FAPIPARYAML,
       },

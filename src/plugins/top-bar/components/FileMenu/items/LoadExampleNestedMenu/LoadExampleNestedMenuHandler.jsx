@@ -57,6 +57,10 @@ const LoadExampleNestedMenuHandler = forwardRef((props, ref) => {
       const content = editorContentFixturesSelectors.selectArazzo100OAuthYAML();
       editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
     },
+    loadArazzo110AsyncAPIFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo110AsyncAPIYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
     loadArazzo100BNPLFixture() {
       const content = editorContentFixturesSelectors.selectArazzo100BNPLYAML();
       editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
@@ -91,6 +95,7 @@ LoadExampleNestedMenuHandler.propTypes = {
     selectArazzo100LoginAndRetrievePetsYAML: PropTypes.func.isRequired,
     selectArazzo100PetCouponsYAML: PropTypes.func.isRequired,
     selectArazzo100OAuthYAML: PropTypes.func.isRequired,
+    selectArazzo110AsyncAPIYAML: PropTypes.func.isRequired,
     selectArazzo100BNPLYAML: PropTypes.func.isRequired,
     selectArazzo100FAPIPARYAML: PropTypes.func.isRequired,
   }).isRequired,
