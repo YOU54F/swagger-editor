@@ -17,6 +17,7 @@ import APIDesignSystemsMenuItem from './components/FileMenu/items/LoadExampleNes
 import Arazzo100PetstoreMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100PetstoreMenuItem.jsx';
 import Arazzo100PetCouponsMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100PetCouponsMenuItem.jsx';
 import Arazzo100OAuthMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100OAuthMenuItem.jsx';
+import Arazzo110AsyncAPIMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo110AsyncAPIMenuItem.jsx';
 import Arazzo100BNPLMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100BNPLMenuItem.jsx';
 import Arazzo100FAPIPARMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100FAPIPARMenuItem.jsx';
 import SaveAsMenuItem from './components/FileMenu/items/SaveAsMenuItem.jsx';
@@ -174,6 +175,7 @@ const TopBarPlugin = () => ({
     TopBarFileMenuLoadExampleNestedMenuArazzo100PetstoreMenuItem: Arazzo100PetstoreMenuItem,
     TopBarFileMenuLoadExampleNestedMenuArazzo100PetCouponsMenuItem: Arazzo100PetCouponsMenuItem,
     TopBarFileMenuLoadExampleNestedMenuArazzo100OAuthMenuItem: Arazzo100OAuthMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo110AsyncAPIMenuItem: Arazzo110AsyncAPIMenuItem,
     TopBarFileMenuLoadExampleNestedMenuArazzo100BNPLMenuItem: Arazzo100BNPLMenuItem,
     TopBarFileMenuLoadExampleNestedMenuArazzo100FAPIPARMenuItem: Arazzo100FAPIPARMenuItem,
     TopBarFileMenuSaveAsMenuItem: SaveAsMenuItem,
