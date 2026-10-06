@@ -24,6 +24,30 @@ const EditorPreviewArazzo = ({ editorSelectors, editorActions }) => {
     return () => el.removeEventListener(NAVIGATE_EVENT, onNavigate);
   }, [editorActions]);
 
+  // Follow the editor cursor. Moves made through the API (a line button in the preview) are skipped,
+  // and the viewer is not focused, so typing is never interrupted.
+  useEffect(() => {
+    let subscription;
+    const attach = () => {
+      const editor = editorSelectors.selectEditor();
+      if (!editor || !ref.current) return false;
+      subscription = editor.onDidChangeCursorPosition((e) => {
+        if (e.source !== 'api') ref.current?.revealLine(e.position.lineNumber, { focus: false });
+      });
+      return true;
+    };
+    let poll;
+    if (!attach()) {
+      poll = setInterval(() => {
+        if (attach()) clearInterval(poll);
+      }, 250);
+    }
+    return () => {
+      clearInterval(poll);
+      subscription?.dispose();
+    };
+  }, [editorSelectors]);
+
   useEffect(() => {
     let current = true;
     const timer = setTimeout(async () => {
@@ -46,6 +70,7 @@ const EditorPreviewArazzo = ({ editorSelectors, editorActions }) => {
 EditorPreviewArazzo.propTypes = {
   editorSelectors: PropTypes.shape({
     selectContent: PropTypes.func.isRequired,
+    selectEditor: PropTypes.func.isRequired,
   }).isRequired,
   editorActions: PropTypes.shape({
     setPosition: PropTypes.func.isRequired,
