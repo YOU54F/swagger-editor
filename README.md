@@ -584,6 +584,7 @@ The two modes produce different syntax highlighting appearances:
 Both modes support:
 - OpenAPI 2.0, 3.0, 3.1, 3.2
 - AsyncAPI 2.x, 3.x
+- Arazzo 1.0.x, 1.1.x (completion, hover and diagnostics come from [`arazzo-viewer`](./docs/arazzo.md), not ApiDOM)
 - JSON and YAML syntax
 - Specification extensions (x- prefixed fields)
 - Inline JSON objects and arrays
@@ -604,6 +605,7 @@ SwaggerEditor comes with number of `preview` plugins that are responsible for re
 the definition that's being created in the editor. These plugins include:
 
 - **EditorPreviewAsyncAPIPlugin** - AsyncAPI specification rendering support
+- **EditorPreviewArazzoPlugin** - Arazzo workflow rendering support (see [Arazzo support](./docs/arazzo.md))
 - **EditorPreviewAPIDesignSystemsPlugin** - API Design Systems rendering support
 
 With a bit of adapting, we can use these plugins with SwaggerUI to provide an ability
