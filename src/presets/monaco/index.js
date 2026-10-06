@@ -6,6 +6,7 @@ import VersionsPlugin from 'plugins/versions/index.js';
 import EditorTextareaPlugin from 'plugins/editor-textarea/index.js';
 import EditorMonacoPlugin from 'plugins/editor-monaco/index.js';
 import EditorMonacoLanguageApiDOMPlugin from 'plugins/editor-monaco-language-apidom/index.js';
+import EditorMonacoLanguageArazzoPlugin from 'plugins/editor-monaco-language-arazzo/index.js';
 import EditorMonacoYamlPastePlugin from 'plugins/editor-monaco-yaml-paste/index.js';
 import EditorContentReadOnlyPlugin from 'plugins/editor-content-read-only/index.js';
 import EditorContentOriginPlugin from 'plugins/editor-content-origin/index.js';
@@ -34,6 +35,7 @@ const MonacoPreset = () => [
   EditorTextareaPlugin,
   EditorMonacoPlugin,
   EditorMonacoLanguageApiDOMPlugin,
+  EditorMonacoLanguageArazzoPlugin,
   EditorMonacoYamlPastePlugin,
   EditorContentReadOnlyPlugin,
   EditorContentOriginPlugin,
