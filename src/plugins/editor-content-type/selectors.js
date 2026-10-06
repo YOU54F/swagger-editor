@@ -68,6 +68,10 @@ export const selectIsContentTypeAPIDesignSystems = createSelector(
   }
 );
 
+export const selectIsContentTypeArazzo = createSelector(selectContentType, (contentType) => {
+  return contentType !== null && contentType.startsWith('application/vnd.oai.arazzo');
+});
+
 export const selectIsContentTypeJSONSchema = createSelector(selectContentType, (contentType) => {
   return contentType !== null && contentType.startsWith('application/schema');
 });
@@ -114,7 +118,8 @@ export const selectInferFileNameFromContent = createSelector(
   selectIsContentTypeOpenAPI31x,
   selectIsContentTypeOpenAPI32x,
   selectIsContentTypeAsyncAPI2,
-  (isOpenAPI20, isOpenAPI30x, isOpenAPI31x, isOpenAPI32x, isAsyncAPI2) => {
+  selectIsContentTypeArazzo,
+  (isOpenAPI20, isOpenAPI30x, isOpenAPI31x, isOpenAPI32x, isAsyncAPI2, isArazzo) => {
     return isOpenAPI20
       ? 'openapi2'
       : isOpenAPI30x
@@ -125,7 +130,9 @@ export const selectInferFileNameFromContent = createSelector(
             ? 'openapi3_2'
             : isAsyncAPI2
               ? 'asyncapi2'
-              : 'definition';
+              : isArazzo
+                ? 'arazzo'
+                : 'definition';
   }
 );
 

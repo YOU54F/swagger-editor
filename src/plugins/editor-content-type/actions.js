@@ -194,6 +194,24 @@ export const detectContentType = (content) => async (system) => {
       return editorActions.detectContentTypeSuccess({ contentType, content, requestId });
     }
 
+    const arazzoJSONMatch = content.match(/"arazzo"\s*:\s*"(?<version_json>1\.\d+\.\d+)"/);
+    if (arazzoJSONMatch !== null && fn.isValidJSONObject(content)) {
+      const version = arazzoJSONMatch.groups?.version_json;
+      const contentType = `application/vnd.oai.arazzo+json;version=${version}`;
+
+      return editorActions.detectContentTypeSuccess({ contentType, content, requestId });
+    }
+
+    const arazzoYAMLMatch = content.match(
+      /^(["']?)arazzo\1\s*:\s*(["']?)(?<version_yaml>1\.\d+\.\d+)\2(?:\s+|$)/m
+    );
+    if (arazzoYAMLMatch !== null && fn.isValidYAMLObject(content)) {
+      const version = arazzoYAMLMatch.groups?.version_yaml;
+      const contentType = `application/vnd.oai.arazzo+yaml;version=${version}`;
+
+      return editorActions.detectContentTypeSuccess({ contentType, content, requestId });
+    }
+
     const jsonSchema202012JSONMatch = content.match(
       /"\$schema"\s*:\s*"(?<version_json>https:\/\/json-schema.org\/draft\/2020-12\/schema)"/
     );
