@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { defineArazzoViewer } from 'arazzo-viewer';
 
+import loadArazzoSources from '../utils/sources.js';
+
 defineArazzoViewer();
 
 const EditorPreviewArazzo = ({ editorSelectors }) => {
@@ -12,6 +14,18 @@ const EditorPreviewArazzo = ({ editorSelectors }) => {
     if (ref.current) {
       ref.current.source = content;
     }
+  }, [content]);
+
+  useEffect(() => {
+    let current = true;
+    const timer = setTimeout(async () => {
+      const sources = await loadArazzoSources(content);
+      if (current && ref.current) ref.current.sources = sources;
+    }, 500);
+    return () => {
+      current = false;
+      clearTimeout(timer);
+    };
   }, [content]);
 
   return (

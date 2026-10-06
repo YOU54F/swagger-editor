@@ -1,6 +1,8 @@
 import * as monaco from 'monaco-editor';
 // eslint-disable-next-line import/no-unresolved -- resolved via the package "exports" map
-import { registerArazzoLanguage } from 'arazzo-viewer/language';
+import { registerArazzoLanguage, buildSources } from 'arazzo-viewer/language';
+
+import loadArazzoSources from '../editor-preview-arazzo/utils/sources.js';
 
 // the editor's own language id (see editor-monaco-language-apidom)
 const LANGUAGE_ID = 'apidom';
@@ -18,12 +20,27 @@ const isArazzo = (model) => {
  */
 const EditorMonacoLanguageArazzoPlugin = () => ({
   afterLoad() {
-    const { validate } = registerArazzoLanguage(monaco, LANGUAGE_ID, () => ({}), isArazzo);
+    let sources = {};
+    const { validate } = registerArazzoLanguage(monaco, LANGUAGE_ID, () => ({ sources }), isArazzo);
+
+    let timer;
+    const refreshSources = (model) => {
+      clearTimeout(timer);
+      timer = setTimeout(async () => {
+        if (!isArazzo(model)) return;
+        sources = buildSources(await loadArazzoSources(model.getValue()));
+        validate(model);
+      }, 500);
+    };
 
     const track = (model) => {
       if (model.getLanguageId() !== LANGUAGE_ID) return;
       validate(model);
-      model.onDidChangeContent(() => validate(model));
+      refreshSources(model);
+      model.onDidChangeContent(() => {
+        validate(model);
+        refreshSources(model);
+      });
     };
     monaco.editor.getModels().forEach(track);
     monaco.editor.onDidCreateModel(track);
