@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { defineArazzoViewer } from 'arazzo-viewer';
+import { defineArazzoViewer, NAVIGATE_EVENT } from 'arazzo-viewer';
 
 import loadArazzoSources from '../utils/sources.js';
 
 defineArazzoViewer();
 
-const EditorPreviewArazzo = ({ editorSelectors }) => {
+const EditorPreviewArazzo = ({ editorSelectors, editorActions }) => {
   const ref = useRef(null);
   const content = editorSelectors.selectContent();
 
@@ -15,6 +15,14 @@ const EditorPreviewArazzo = ({ editorSelectors }) => {
       ref.current.source = content;
     }
   }, [content]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    const onNavigate = (e) => editorActions.setPosition({ lineNumber: e.detail.line, column: 1 });
+    el.addEventListener(NAVIGATE_EVENT, onNavigate);
+    return () => el.removeEventListener(NAVIGATE_EVENT, onNavigate);
+  }, [editorActions]);
 
   useEffect(() => {
     let current = true;
@@ -38,6 +46,9 @@ const EditorPreviewArazzo = ({ editorSelectors }) => {
 EditorPreviewArazzo.propTypes = {
   editorSelectors: PropTypes.shape({
     selectContent: PropTypes.func.isRequired,
+  }).isRequired,
+  editorActions: PropTypes.shape({
+    setPosition: PropTypes.func.isRequired,
   }).isRequired,
 };
 
