@@ -17,6 +17,7 @@ import VersionsPlugin from 'plugins/versions/index.js';
 import EditorTextareaPlugin from 'plugins/editor-textarea/index.js';
 import EditorMonacoPlugin from 'plugins/editor-monaco/index.js';
 import EditorMonacoLanguageApiDOMPlugin from 'plugins/editor-monaco-language-apidom/index.js';
+import EditorMonacoLanguageArazzoPlugin from 'plugins/editor-monaco-language-arazzo/index.js';
 import EditorMonacoYamlPastePlugin from 'plugins/editor-monaco-yaml-paste/index.js';
 import EditorPreviewPlugin from 'plugins/editor-preview/index.js';
 import EditorPreviewSwaggerUIPlugin from 'plugins/editor-preview-swagger-ui/index.js';
@@ -139,6 +140,7 @@ SwaggerEditor.plugins = {
   EditorTextarea: EditorTextareaPlugin,
   EditorMonaco: EditorMonacoPlugin,
   EditorMonacoLanguageApiDOM: EditorMonacoLanguageApiDOMPlugin,
+  EditorMonacoLanguageArazzo: EditorMonacoLanguageArazzoPlugin,
   EditorMonacoYamlPaste: EditorMonacoYamlPastePlugin,
   EditorContentReadOnly: EditorContentReadOnlyPlugin,
   EditorContentOrigin: EditorContentOriginPlugin,
