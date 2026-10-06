@@ -8,6 +8,11 @@ import selectAsyncAPI260StreetlightsYAML from './selectors/selectAsyncAPI260Stre
 import selectAsyncAPI300StreetlightsYAML from './selectors/selectAsyncAPI300StreetlightsYAML.js';
 import selectJSONSchema202012YAML from './selectors/selectJSONSchema202012YAML.js';
 import selectAPIDesignSystemsYAML from './selectors/selectAPIDesignSystemsYAML.js';
+import selectArazzo100LoginAndRetrievePetsYAML from './selectors/selectArazzo100LoginAndRetrievePetsYAML.js';
+import selectArazzo100PetCouponsYAML from './selectors/selectArazzo100PetCouponsYAML.js';
+import selectArazzo100OAuthYAML from './selectors/selectArazzo100OAuthYAML.js';
+import selectArazzo100BNPLYAML from './selectors/selectArazzo100BNPLYAML.js';
+import selectArazzo100FAPIPARYAML from './selectors/selectArazzo100FAPIPARYAML.js';
 // test
 
 const EditorContentFixturesPlugin = () => ({
@@ -24,6 +29,11 @@ const EditorContentFixturesPlugin = () => ({
         selectAsyncAPI300StreetlightsYAML,
         selectJSONSchema202012YAML,
         selectAPIDesignSystemsYAML,
+        selectArazzo100LoginAndRetrievePetsYAML,
+        selectArazzo100PetCouponsYAML,
+        selectArazzo100OAuthYAML,
+        selectArazzo100BNPLYAML,
+        selectArazzo100FAPIPARYAML,
       },
     },
   },

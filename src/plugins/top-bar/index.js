@@ -14,6 +14,11 @@ import AsyncAPI26StreetlightsMenuItem from './components/FileMenu/items/LoadExam
 import AsyncAPI30StreetlightsMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/AsyncAPI30StreetlightsMenuItem.jsx';
 import JSONSchema202012MenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/JSONSchema202012MenuItem.jsx';
 import APIDesignSystemsMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/APIDesignSystemsMenuItem.jsx';
+import Arazzo100PetstoreMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100PetstoreMenuItem.jsx';
+import Arazzo100PetCouponsMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100PetCouponsMenuItem.jsx';
+import Arazzo100OAuthMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100OAuthMenuItem.jsx';
+import Arazzo100BNPLMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100BNPLMenuItem.jsx';
+import Arazzo100FAPIPARMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100FAPIPARMenuItem.jsx';
 import SaveAsMenuItem from './components/FileMenu/items/SaveAsMenuItem.jsx';
 import ConvertAndSaveAsJSONMenuItem from './components/FileMenu/items/ConvertAndSaveAsJSONMenuItem.jsx';
 import ConvertAndSaveAsYAMLMenuItem from './components/FileMenu/items/ConvertAndSaveAsYAMLMenuItem.jsx';
@@ -166,6 +171,11 @@ const TopBarPlugin = () => ({
       AsyncAPI30StreetlightsMenuItem,
     TopBarFileMenuLoadExampleNestedMenuJSONSchema202012MenuItem: JSONSchema202012MenuItem,
     TopBarFileMenuLoadExampleNestedMenuAPIDesignSystemsMenuItem: APIDesignSystemsMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo100PetstoreMenuItem: Arazzo100PetstoreMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo100PetCouponsMenuItem: Arazzo100PetCouponsMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo100OAuthMenuItem: Arazzo100OAuthMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo100BNPLMenuItem: Arazzo100BNPLMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo100FAPIPARMenuItem: Arazzo100FAPIPARMenuItem,
     TopBarFileMenuSaveAsMenuItem: SaveAsMenuItem,
     TopBarFileMenuConvertAndSaveAsJSONMenuItem: ConvertAndSaveAsJSONMenuItem,
     TopBarFileMenuConvertAndSaveAsYAMLMenuItem: ConvertAndSaveAsYAMLMenuItem,

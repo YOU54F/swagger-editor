@@ -45,6 +45,26 @@ const LoadExampleNestedMenuHandler = forwardRef((props, ref) => {
       const content = editorContentFixturesSelectors.selectAPIDesignSystemsYAML();
       editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
     },
+    loadArazzo100LoginAndRetrievePetsFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo100LoginAndRetrievePetsYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
+    loadArazzo100PetCouponsFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo100PetCouponsYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
+    loadArazzo100OAuthFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo100OAuthYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
+    loadArazzo100BNPLFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo100BNPLYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
+    loadArazzo100FAPIPARFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo100FAPIPARYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
   }));
 
   return null;
@@ -68,6 +88,11 @@ LoadExampleNestedMenuHandler.propTypes = {
     selectAsyncAPI300StreetlightsYAML: PropTypes.func.isRequired,
     selectJSONSchema202012YAML: PropTypes.func.isRequired,
     selectAPIDesignSystemsYAML: PropTypes.func.isRequired,
+    selectArazzo100LoginAndRetrievePetsYAML: PropTypes.func.isRequired,
+    selectArazzo100PetCouponsYAML: PropTypes.func.isRequired,
+    selectArazzo100OAuthYAML: PropTypes.func.isRequired,
+    selectArazzo100BNPLYAML: PropTypes.func.isRequired,
+    selectArazzo100FAPIPARYAML: PropTypes.func.isRequired,
   }).isRequired,
 };
 
