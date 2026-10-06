@@ -48,6 +48,26 @@ const LoadExampleNestedMenu = (props) => {
     'TopBarFileMenuLoadExampleNestedMenuAPIDesignSystemsMenuItem',
     true
   );
+  const Arazzo100PetstoreMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo100PetstoreMenuItem',
+    true
+  );
+  const Arazzo100PetCouponsMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo100PetCouponsMenuItem',
+    true
+  );
+  const Arazzo100OAuthMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo100OAuthMenuItem',
+    true
+  );
+  const Arazzo100BNPLMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo100BNPLMenuItem',
+    true
+  );
+  const Arazzo100FAPIPARMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo100FAPIPARMenuItem',
+    true
+  );
 
   const handleOpenAPI32PetstoreClick = useCallback(async (event) => {
     await loadExampleNestedMenuHandler.current.loadOpenAP32PetstoreFixture(event);
@@ -79,6 +99,21 @@ const LoadExampleNestedMenu = (props) => {
   const handleAPIDesignSystemsClick = useCallback(async (event) => {
     await loadExampleNestedMenuHandler.current.loadAPIDesignSystemsFixture(event);
   }, []);
+  const handleArazzo100PetstoreClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo100LoginAndRetrievePetsFixture(event);
+  }, []);
+  const handleArazzo100PetCouponsClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo100PetCouponsFixture(event);
+  }, []);
+  const handleArazzo100OAuthClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo100OAuthFixture(event);
+  }, []);
+  const handleArazzo100BNPLClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo100BNPLFixture(event);
+  }, []);
+  const handleArazzo100FAPIPARClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo100FAPIPARFixture(event);
+  }, []);
 
   return (
     <>
@@ -98,6 +133,12 @@ const LoadExampleNestedMenu = (props) => {
         <JSONSchema202012MenuItem onClick={handleJSONSchema202012Click} />
         <DropdownMenuItemDivider />
         <APIDesignSystemsMenuItem onClick={handleAPIDesignSystemsClick} />
+        <DropdownMenuItemDivider />
+        <Arazzo100PetstoreMenuItem onClick={handleArazzo100PetstoreClick} />
+        <Arazzo100PetCouponsMenuItem onClick={handleArazzo100PetCouponsClick} />
+        <Arazzo100OAuthMenuItem onClick={handleArazzo100OAuthClick} />
+        <Arazzo100BNPLMenuItem onClick={handleArazzo100BNPLClick} />
+        <Arazzo100FAPIPARMenuItem onClick={handleArazzo100FAPIPARClick} />
       </DropDownMenuNested>
     </>
   );
