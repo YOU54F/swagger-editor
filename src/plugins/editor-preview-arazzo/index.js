@@ -3,8 +3,8 @@ import EditorPreviewWrapper from './extensions/editor-preview/wrap-components/Ed
 
 /**
  * Previews Arazzo workflow descriptions (1.0.x and 1.1.x) using the embeddable
- * <arazzo-viewer> web component. The viewer parses the content itself, so no
- * parse state is kept in the store.
+ * <arazzo-viewer> web component with documents parsed by ApiDOM and projected
+ * through the optional viewer adapter.
  */
 const EditorPreviewArazzoPlugin = () => ({
   components: {

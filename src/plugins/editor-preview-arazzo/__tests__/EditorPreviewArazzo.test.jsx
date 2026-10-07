@@ -4,6 +4,11 @@ import { act, render } from '@testing-library/react';
 import EditorPreviewArazzo from '../components/EditorPreviewArazzo.jsx';
 import EditorPreviewWrapper from '../extensions/editor-preview/wrap-components/EditorPreviewWrapper.jsx';
 import EditorPreviewArazzoPlugin from '../index.js';
+import parseArazzoDocument from '../utils/parse.js';
+
+vi.mock('../utils/parse.js', () => ({
+  default: vi.fn(async () => ({ ok: true, document: {}, lines: {}, problems: [] })),
+}));
 
 vi.mock('arazzo-viewer', async (importOriginal) => {
   const actual = await importOriginal();
@@ -18,6 +23,10 @@ vi.mock('arazzo-viewer', async (importOriginal) => {
           constructor() {
             super();
             this.revealLine = vi.fn();
+            this.setDocument = vi.fn((parsedDocument, source) => {
+              this.parsedDocument = parsedDocument;
+              this.source = source;
+            });
           }
         }
       );
@@ -92,14 +101,42 @@ describe('EditorPreviewArazzo', () => {
     expect(viewer.closest('section')).toHaveClass('swagger-editor__editor-preview-arazzo');
   });
 
-  test('should set content on the element immediately and follow content changes', () => {
+  test('should pass ApiDOM-parsed content to the element and follow content changes', async () => {
     const { viewer, setContent } = setup({ content: 'arazzo: 1.0.0\n# one\n' });
+    await flush(0);
 
     expect(viewer.source).toBe('arazzo: 1.0.0\n# one\n');
+    expect(viewer.setDocument).toHaveBeenCalledWith(
+      { ok: true, document: {}, lines: {}, problems: [] },
+      'arazzo: 1.0.0\n# one\n'
+    );
 
     setContent('arazzo: 1.0.0\n# two\n');
+    await flush(0);
 
     expect(viewer.source).toBe('arazzo: 1.0.0\n# two\n');
+  });
+
+  test('should ignore a parse result superseded by newer content', async () => {
+    let resolveOld;
+    parseArazzoDocument.mockReturnValueOnce(
+      new Promise((resolve) => {
+        resolveOld = resolve;
+      })
+    );
+    const { viewer, setContent } = setup({ content: 'arazzo: 1.0.0\n# old\n' });
+    setContent('arazzo: 1.1.0\n# new\n');
+    await flush(0);
+    resolveOld({ ok: false, error: 'Old error' });
+    await flush(0);
+    expect(viewer.source).toBe('arazzo: 1.1.0\n# new\n');
+    expect(viewer.parsedDocument.ok).toBe(true);
+  });
+
+  test('should supply a base URL and fetcher for external references', () => {
+    const { viewer } = setup();
+    expect(viewer.baseUrl).toBe(document.baseURI);
+    expect(typeof viewer.fetcher).toBe('function');
   });
 
   describe('source fetching', () => {

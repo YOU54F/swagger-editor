@@ -5,6 +5,8 @@ import * as apidomLS from '@swagger-api/apidom-ls';
 import * as apidomNSOpenAPI2 from '@swagger-api/apidom-ns-openapi-2';
 import * as apidomNSOpenAPI30 from '@swagger-api/apidom-ns-openapi-3-0';
 
+import createSourceDocumentProvider from './source-documents.js';
+
 export class ApiDOMWorker {
   static defaultApiDOMContext = {
     validatorProviders: [],
@@ -28,9 +30,7 @@ export class ApiDOMWorker {
     },
   };
 
-  #abortController = null;
-
-  #previousDiagnostics = [];
+  #validationStates = new Map();
 
   constructor(ctx, createData) {
     this._ctx = ctx;
@@ -39,32 +39,46 @@ export class ApiDOMWorker {
   }
 
   createLanguageService() {
-    return apidomLS.getLanguageService(
-      deepExtend({}, this.constructor.defaultApiDOMContext, this._createData.apiDOMContext)
+    const context = deepExtend(
+      {},
+      this.constructor.defaultApiDOMContext,
+      this._createData.apiDOMContext
     );
+    context.sourceDocuments ??= createSourceDocumentProvider(this._createData.baseURI);
+    if (this._createData.baseURI) {
+      context.referenceOptions.resolve.baseURI ??= this._createData.baseURI;
+    }
+    return apidomLS.getLanguageService(context);
   }
 
   async doValidation(uri) {
-    this.#abortController?.abort();
-    this.#abortController = new AbortController();
-    const { signal } = this.#abortController;
-
+    const previous = this.#validationStates.get(uri);
+    previous?.controller.abort();
     const document = this._getTextDocument(uri);
     if (!document) {
+      this.#validationStates.delete(uri);
       return [];
     }
+    const state = { controller: new AbortController(), diagnostics: previous?.diagnostics ?? [] };
+    this.#validationStates.set(uri, state);
+    const { signal } = state.controller;
 
     const validationContext = {
       ...this.constructor.defaultApiDOMContext.validationContext,
+      ...this._createData.apiDOMContext?.validationContext,
+      baseURI:
+        this._createData.apiDOMContext?.validationContext?.baseURI ??
+        this._createData.baseURI ??
+        document.uri,
       signal,
     };
     const result = await this._languageService.doValidation(document, validationContext);
 
     if (signal.aborted) {
-      return this.#previousDiagnostics;
+      return this.#validationStates.get(uri)?.diagnostics ?? [];
     }
 
-    this.#previousDiagnostics = result;
+    state.diagnostics = result;
 
     return result;
   }

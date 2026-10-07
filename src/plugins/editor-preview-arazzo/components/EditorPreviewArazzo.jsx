@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { defineArazzoViewer, NAVIGATE_EVENT } from 'arazzo-viewer';
 
-import loadArazzoSources from '../utils/sources.js';
+import loadArazzoSources, { fetchText } from '../utils/sources.js';
+import parseArazzoDocument from '../utils/parse.js';
 
 defineArazzoViewer();
 
@@ -11,10 +12,20 @@ const EditorPreviewArazzo = ({ editorSelectors, editorActions }) => {
   const content = editorSelectors.selectContent();
 
   useEffect(() => {
-    if (ref.current) {
-      ref.current.source = content;
-    }
+    let current = true;
+    parseArazzoDocument(content).then((parsedDocument) => {
+      if (current && ref.current) ref.current.setDocument(parsedDocument, content);
+    });
+    return () => {
+      current = false;
+    };
   }, [content]);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    ref.current.baseUrl = globalThis.document?.baseURI ?? globalThis.location?.href;
+    ref.current.fetcher = fetchText;
+  }, []);
 
   useEffect(() => {
     const el = ref.current;

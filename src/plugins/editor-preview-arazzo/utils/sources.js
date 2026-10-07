@@ -2,7 +2,7 @@ import { loadSources } from 'arazzo-viewer';
 
 const cache = new Map();
 
-const fetchText = async (url) => {
+export const fetchText = async (url) => {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`${res.status} ${url}`);
   return res.text();

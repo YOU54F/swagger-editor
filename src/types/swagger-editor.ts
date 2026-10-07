@@ -17,7 +17,6 @@ enum pluginNames {
   EditorTextarea = 'EditorTextarea',
   EditorMonaco = 'EditorMonaco',
   EditorMonacoLanguageApiDOM = 'EditorMonacoLanguageApiDOM',
-  EditorMonacoLanguageArazzo = 'EditorMonacoLanguageArazzo',
   EditorMonacoYamlPaste = 'EditorMonacoYamlPaste',
   EditorContentReadOnly = 'EditorContentReadOnly',
   EditorContentOrigin = 'EditorContentOrigin',
