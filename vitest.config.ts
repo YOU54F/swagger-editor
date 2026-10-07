@@ -18,6 +18,7 @@ export default defineConfig({
     server: {
       deps: {
         inline: ['@codingame/monaco-vscode-api'],
+        external: [/apidom-parser-adapter-/],
       },
     },
   },

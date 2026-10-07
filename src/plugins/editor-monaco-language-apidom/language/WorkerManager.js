@@ -46,6 +46,7 @@ export default class WorkerManager {
       const createData = {
         ...this.#defaults.getWorkerOptions().data,
         languageId,
+        baseURI: globalThis.document?.baseURI ?? globalThis.location?.href,
         apiDOMContext: this.#defaults.getWorkerOptions().apiDOMContext,
         customWorkerPath: this.#defaults.getWorkerOptions().customWorkerPath,
       };

@@ -58,7 +58,9 @@ const registerProviders = ({
     providers.push(
       vscodeLanguages.registerCompletionItemProvider(
         languageId,
-        new CompletionItemProvider(...args)
+        new CompletionItemProvider(...args),
+        '$',
+        '.'
       )
     );
     providers.push(
