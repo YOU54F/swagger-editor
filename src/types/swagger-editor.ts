@@ -28,6 +28,7 @@ enum pluginNames {
   EditorPreviewSwaggerUI = 'EditorPreviewSwaggerUI',
   EditorPreviewAsyncAPI = 'EditorPreviewAsyncAPI',
   EditorPreviewApiDesignSystems = 'EditorPreviewApiDesignSystems',
+  EditorPreviewArazzo = 'EditorPreviewArazzo',
   EditorSafeRender = 'EditorSafeRender',
   TopBar = 'TopBar',
   SplashScreenPlugin = 'SplashScreenPlugin',

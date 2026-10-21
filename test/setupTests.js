@@ -1,4 +1,4 @@
 import '@testing-library/jest-dom/vitest';
 import 'vitest-canvas-mock';
 
-document.queryCommandSupported = () => false;
+if (typeof document !== 'undefined') document.queryCommandSupported = () => false;

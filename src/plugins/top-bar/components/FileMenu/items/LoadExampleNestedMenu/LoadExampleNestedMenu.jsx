@@ -28,16 +28,16 @@ const LoadExampleNestedMenu = (props) => {
     'TopBarFileMenuLoadExampleNestedMenuAsyncAPI26PetstoreMenuItem',
     true
   );
-  const AsyncAPI30PetstoreMenuItem = getComponent(
-    'TopBarFileMenuLoadExampleNestedMenuAsyncAPI30PetstoreMenuItem',
+  const AsyncAPI31PetstoreMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuAsyncAPI31PetstoreMenuItem',
     true
   );
   const AsyncAPI26StreetlightsMenuItem = getComponent(
     'TopBarFileMenuLoadExampleNestedMenuAsyncAPI26StreetlightsMenuItem',
     true
   );
-  const AsyncAPI30StreetlightsMenuItem = getComponent(
-    'TopBarFileMenuLoadExampleNestedMenuAsyncAPI30StreetlightsMenuItem',
+  const AsyncAPI31StreetlightsMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuAsyncAPI31StreetlightsMenuItem',
     true
   );
   const JSONSchema202012MenuItem = getComponent(
@@ -46,6 +46,30 @@ const LoadExampleNestedMenu = (props) => {
   );
   const APIDesignSystemsMenuItem = getComponent(
     'TopBarFileMenuLoadExampleNestedMenuAPIDesignSystemsMenuItem',
+    true
+  );
+  const Arazzo100PetstoreMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo100PetstoreMenuItem',
+    true
+  );
+  const Arazzo100PetCouponsMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo100PetCouponsMenuItem',
+    true
+  );
+  const Arazzo100OAuthMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo100OAuthMenuItem',
+    true
+  );
+  const Arazzo100BNPLMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo100BNPLMenuItem',
+    true
+  );
+  const Arazzo110AsyncAPIMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo110AsyncAPIMenuItem',
+    true
+  );
+  const Arazzo100FAPIPARMenuItem = getComponent(
+    'TopBarFileMenuLoadExampleNestedMenuArazzo100FAPIPARMenuItem',
     true
   );
 
@@ -64,20 +88,38 @@ const LoadExampleNestedMenu = (props) => {
   const handleAsyncAPI26PetstoreClick = useCallback(async (event) => {
     await loadExampleNestedMenuHandler.current.loadAsyncAPI26PetstoreFixture(event);
   }, []);
-  const handleAsyncAPI30PetstoreClick = useCallback(async (event) => {
-    await loadExampleNestedMenuHandler.current.loadAsyncAPI30PetstoreFixture(event);
+  const handleAsyncAPI31PetstoreClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadAsyncAPI31PetstoreFixture(event);
   }, []);
   const handleAsyncAPI26StreetlightsClick = useCallback(async (event) => {
     await loadExampleNestedMenuHandler.current.loadAsyncAPI26StreetlightsFixture(event);
   }, []);
-  const handleAsyncAPI30StreetlightsClick = useCallback(async (event) => {
-    await loadExampleNestedMenuHandler.current.loadAsyncAPI30StreetlightsFixture(event);
+  const handleAsyncAPI31StreetlightsClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadAsyncAPI31StreetlightsFixture(event);
   }, []);
   const handleJSONSchema202012Click = useCallback(async (event) => {
     await loadExampleNestedMenuHandler.current.loadJSONSchema202012Fixture(event);
   }, []);
   const handleAPIDesignSystemsClick = useCallback(async (event) => {
     await loadExampleNestedMenuHandler.current.loadAPIDesignSystemsFixture(event);
+  }, []);
+  const handleArazzo100PetstoreClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo100LoginAndRetrievePetsFixture(event);
+  }, []);
+  const handleArazzo100PetCouponsClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo100PetCouponsFixture(event);
+  }, []);
+  const handleArazzo100OAuthClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo100OAuthFixture(event);
+  }, []);
+  const handleArazzo100BNPLClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo100BNPLFixture(event);
+  }, []);
+  const handleArazzo100FAPIPARClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo100FAPIPARFixture(event);
+  }, []);
+  const handleArazzo110AsyncAPIClick = useCallback(async (event) => {
+    await loadExampleNestedMenuHandler.current.loadArazzo110AsyncAPIFixture(event);
   }, []);
 
   return (
@@ -90,14 +132,21 @@ const LoadExampleNestedMenu = (props) => {
         <OpenAPI30PetstoreMenuItem onClick={handleOpenAPI30PetstoreClick} />
         <OpenAPI20PetstoreMenuItem onClick={handleOpenAPI20PetstoreClick} />
         <DropdownMenuItemDivider />
-        <AsyncAPI30PetstoreMenuItem onClick={handleAsyncAPI30PetstoreClick} />
+        <AsyncAPI31PetstoreMenuItem onClick={handleAsyncAPI31PetstoreClick} />
         <AsyncAPI26PetstoreMenuItem onClick={handleAsyncAPI26PetstoreClick} />
-        <AsyncAPI30StreetlightsMenuItem onClick={handleAsyncAPI30StreetlightsClick} />
+        <AsyncAPI31StreetlightsMenuItem onClick={handleAsyncAPI31StreetlightsClick} />
         <AsyncAPI26StreetlightsMenuItem onClick={handleAsyncAPI26StreetlightsClick} />
         <DropdownMenuItemDivider />
         <JSONSchema202012MenuItem onClick={handleJSONSchema202012Click} />
         <DropdownMenuItemDivider />
         <APIDesignSystemsMenuItem onClick={handleAPIDesignSystemsClick} />
+        <DropdownMenuItemDivider />
+        <Arazzo100PetstoreMenuItem onClick={handleArazzo100PetstoreClick} />
+        <Arazzo100PetCouponsMenuItem onClick={handleArazzo100PetCouponsClick} />
+        <Arazzo100OAuthMenuItem onClick={handleArazzo100OAuthClick} />
+        <Arazzo100BNPLMenuItem onClick={handleArazzo100BNPLClick} />
+        <Arazzo100FAPIPARMenuItem onClick={handleArazzo100FAPIPARClick} />
+        <Arazzo110AsyncAPIMenuItem onClick={handleArazzo110AsyncAPIClick} />
       </DropDownMenuNested>
     </>
   );

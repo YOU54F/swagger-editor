@@ -25,16 +25,16 @@ const LoadExampleNestedMenuHandler = forwardRef((props, ref) => {
       const content = editorContentFixturesSelectors.selectAsyncAPI260PetstoreYAML();
       editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
     },
-    loadAsyncAPI30PetstoreFixture() {
-      const content = editorContentFixturesSelectors.selectAsyncAPI300PetstoreYAML();
+    loadAsyncAPI31PetstoreFixture() {
+      const content = editorContentFixturesSelectors.selectAsyncAPI310PetstoreYAML();
       editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
     },
     loadAsyncAPI26StreetlightsFixture() {
       const content = editorContentFixturesSelectors.selectAsyncAPI260StreetlightsYAML();
       editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
     },
-    loadAsyncAPI30StreetlightsFixture() {
-      const content = editorContentFixturesSelectors.selectAsyncAPI300StreetlightsYAML();
+    loadAsyncAPI31StreetlightsFixture() {
+      const content = editorContentFixturesSelectors.selectAsyncAPI310StreetlightsYAML();
       editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
     },
     loadJSONSchema202012Fixture() {
@@ -43,6 +43,30 @@ const LoadExampleNestedMenuHandler = forwardRef((props, ref) => {
     },
     loadAPIDesignSystemsFixture() {
       const content = editorContentFixturesSelectors.selectAPIDesignSystemsYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
+    loadArazzo100LoginAndRetrievePetsFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo100LoginAndRetrievePetsYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
+    loadArazzo100PetCouponsFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo100PetCouponsYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
+    loadArazzo100OAuthFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo100OAuthYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
+    loadArazzo110AsyncAPIFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo110AsyncAPIYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
+    loadArazzo100BNPLFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo100BNPLYAML();
+      editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
+    },
+    loadArazzo100FAPIPARFixture() {
+      const content = editorContentFixturesSelectors.selectArazzo100FAPIPARYAML();
       editorActions.setContent(content, EditorContentOrigin.FixtureLoad);
     },
   }));
@@ -63,11 +87,17 @@ LoadExampleNestedMenuHandler.propTypes = {
     selectOpenAPI304PetstoreYAML: PropTypes.func.isRequired,
     selectOpenAPI20PetstoreYAML: PropTypes.func.isRequired,
     selectAsyncAPI260PetstoreYAML: PropTypes.func.isRequired,
-    selectAsyncAPI300PetstoreYAML: PropTypes.func.isRequired,
+    selectAsyncAPI310PetstoreYAML: PropTypes.func.isRequired,
     selectAsyncAPI260StreetlightsYAML: PropTypes.func.isRequired,
-    selectAsyncAPI300StreetlightsYAML: PropTypes.func.isRequired,
+    selectAsyncAPI310StreetlightsYAML: PropTypes.func.isRequired,
     selectJSONSchema202012YAML: PropTypes.func.isRequired,
     selectAPIDesignSystemsYAML: PropTypes.func.isRequired,
+    selectArazzo100LoginAndRetrievePetsYAML: PropTypes.func.isRequired,
+    selectArazzo100PetCouponsYAML: PropTypes.func.isRequired,
+    selectArazzo100OAuthYAML: PropTypes.func.isRequired,
+    selectArazzo110AsyncAPIYAML: PropTypes.func.isRequired,
+    selectArazzo100BNPLYAML: PropTypes.func.isRequired,
+    selectArazzo100FAPIPARYAML: PropTypes.func.isRequired,
   }).isRequired,
 };
 

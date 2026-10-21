@@ -61,6 +61,9 @@
         "^presets\/.+\/index.js",
         "^@codingame\/monaco-vscode-api",
         "^@swagger-api\/apidom-json-pointer",
+        // git-linked packages only ship ESM (.mjs) builds, which the resolver can't see
+        "^@swagger-api\/apidom-",
+        "^arazzo-viewer$",
         "\\?worker$"
       ]
     }],
@@ -114,6 +117,12 @@
         "no-await-in-loop": "off",
         "no-plusplus": "off",
         "@typescript-eslint/no-explicit-any": "off"
+      }
+    },
+    {
+      "files": ["src/plugins/editor-preview-arazzo/**/*.{js,jsx}"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
       }
     },
     {

@@ -9,11 +9,17 @@ import OpenAPI31PetstoreMenuItem from './components/FileMenu/items/LoadExampleNe
 import OpenAPI30PetstoreMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/OpenAPI30PetstoreMenuItem.jsx';
 import OpenAPI20PetstoreMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/OpenAPI20PetstoreMenuItem.jsx';
 import AsyncAPI26PetstoreMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/AsyncAPI26PetstoreMenuItem.jsx';
-import AsyncAPI30PetstoreMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/AsyncAPI30PetstoreMenuItem.jsx';
+import AsyncAPI31PetstoreMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/AsyncAPI31PetstoreMenuItem.jsx';
 import AsyncAPI26StreetlightsMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/AsyncAPI26StreetlightsMenuItem.jsx';
-import AsyncAPI30StreetlightsMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/AsyncAPI30StreetlightsMenuItem.jsx';
+import AsyncAPI31StreetlightsMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/AsyncAPI31StreetlightsMenuItem.jsx';
 import JSONSchema202012MenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/JSONSchema202012MenuItem.jsx';
 import APIDesignSystemsMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/APIDesignSystemsMenuItem.jsx';
+import Arazzo100PetstoreMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100PetstoreMenuItem.jsx';
+import Arazzo100PetCouponsMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100PetCouponsMenuItem.jsx';
+import Arazzo100OAuthMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100OAuthMenuItem.jsx';
+import Arazzo110AsyncAPIMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo110AsyncAPIMenuItem.jsx';
+import Arazzo100BNPLMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100BNPLMenuItem.jsx';
+import Arazzo100FAPIPARMenuItem from './components/FileMenu/items/LoadExampleNestedMenu/items/Arazzo100FAPIPARMenuItem.jsx';
 import SaveAsMenuItem from './components/FileMenu/items/SaveAsMenuItem.jsx';
 import ConvertAndSaveAsJSONMenuItem from './components/FileMenu/items/ConvertAndSaveAsJSONMenuItem.jsx';
 import ConvertAndSaveAsYAMLMenuItem from './components/FileMenu/items/ConvertAndSaveAsYAMLMenuItem.jsx';
@@ -158,14 +164,20 @@ const TopBarPlugin = () => ({
     TopBarFileMenuLoadExampleNestedMenuOpenAPI31PetstoreMenuItem: OpenAPI31PetstoreMenuItem,
     TopBarFileMenuLoadExampleNestedMenuOpenAPI30PetstoreMenuItem: OpenAPI30PetstoreMenuItem,
     TopBarFileMenuLoadExampleNestedMenuOpenAPI20PetstoreMenuItem: OpenAPI20PetstoreMenuItem,
-    TopBarFileMenuLoadExampleNestedMenuAsyncAPI30PetstoreMenuItem: AsyncAPI30PetstoreMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuAsyncAPI31PetstoreMenuItem: AsyncAPI31PetstoreMenuItem,
     TopBarFileMenuLoadExampleNestedMenuAsyncAPI26PetstoreMenuItem: AsyncAPI26PetstoreMenuItem,
     TopBarFileMenuLoadExampleNestedMenuAsyncAPI26StreetlightsMenuItem:
       AsyncAPI26StreetlightsMenuItem,
-    TopBarFileMenuLoadExampleNestedMenuAsyncAPI30StreetlightsMenuItem:
-      AsyncAPI30StreetlightsMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuAsyncAPI31StreetlightsMenuItem:
+      AsyncAPI31StreetlightsMenuItem,
     TopBarFileMenuLoadExampleNestedMenuJSONSchema202012MenuItem: JSONSchema202012MenuItem,
     TopBarFileMenuLoadExampleNestedMenuAPIDesignSystemsMenuItem: APIDesignSystemsMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo100PetstoreMenuItem: Arazzo100PetstoreMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo100PetCouponsMenuItem: Arazzo100PetCouponsMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo100OAuthMenuItem: Arazzo100OAuthMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo110AsyncAPIMenuItem: Arazzo110AsyncAPIMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo100BNPLMenuItem: Arazzo100BNPLMenuItem,
+    TopBarFileMenuLoadExampleNestedMenuArazzo100FAPIPARMenuItem: Arazzo100FAPIPARMenuItem,
     TopBarFileMenuSaveAsMenuItem: SaveAsMenuItem,
     TopBarFileMenuConvertAndSaveAsJSONMenuItem: ConvertAndSaveAsJSONMenuItem,
     TopBarFileMenuConvertAndSaveAsYAMLMenuItem: ConvertAndSaveAsYAMLMenuItem,
