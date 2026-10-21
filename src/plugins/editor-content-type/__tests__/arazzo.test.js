@@ -249,7 +249,7 @@ describe('Arazzo content type detection', () => {
     test.each([
       'selectOpenAPI320PetstoreYAML',
       'selectOpenAPI20PetstoreYAML',
-      'selectAsyncAPI300PetstoreYAML',
+      'selectAsyncAPI310PetstoreYAML',
       'selectJSONSchema202012YAML',
       'selectAPIDesignSystemsYAML',
     ])('non-Arazzo fixture %s should not be detected as Arazzo', async (name) => {

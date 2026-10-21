@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 const Arazzo100PetCouponsMenuItem = ({ getComponent, onClick, children = null }) => {
   const DropdownMenuItem = getComponent('DropdownMenuItem');
 
-  return <DropdownMenuItem onClick={onClick}>{children || 'Arazzo 1.0 Pet Coupons'}</DropdownMenuItem>;
+  return (
+    <DropdownMenuItem onClick={onClick}>{children || 'Arazzo 1.0 Pet Coupons'}</DropdownMenuItem>
+  );
 };
 
 Arazzo100PetCouponsMenuItem.propTypes = {

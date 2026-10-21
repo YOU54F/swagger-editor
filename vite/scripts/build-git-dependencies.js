@@ -51,10 +51,10 @@ await linkPackage(path.join(apidom, 'packages/apidom-core'), viewer);
 run(npm, ['run', 'build:lib'], viewer);
 
 const packages = await readdir(path.join(apidom, 'packages'), { withFileTypes: true });
-for (const entry of packages) {
-  const directory = path.join(apidom, 'packages', entry.name);
-  if (entry.isDirectory() && existsSync(path.join(directory, 'package.json'))) {
-    await linkPackage(directory, root);
-  }
-}
+await Promise.all(
+  packages
+    .map((entry) => path.join(apidom, 'packages', entry.name))
+    .filter((directory) => existsSync(path.join(directory, 'package.json')))
+    .map((directory) => linkPackage(directory, root))
+);
 await linkPackage(viewer, root);
