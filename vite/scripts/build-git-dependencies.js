@@ -44,6 +44,9 @@ if (!existsSync(path.join(apidom, '.env')) && existsSync(path.join(apidom, '.env
 }
 run(npm, ['ci'], apidom);
 run(npm, ['run', 'build:es'], apidom);
+const jsonAdapter = path.join(apidom, 'packages/apidom-parser-adapter-json');
+run(npm, ['run', 'build:wasm'], jsonAdapter);
+run(npm, ['run', 'build:wasm:copy'], jsonAdapter);
 
 const viewer = await checkout('arazzo-viewer', viewerSource.repository, viewerSource.revision);
 run(npm, ['ci', '--dangerously-allow-all-scripts'], viewer);
