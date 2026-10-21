@@ -47,6 +47,23 @@ import EditorMonacoLanguageApiDOMPlugin from 'swagger-editor/plugins/editor-mona
 
 The viewer follows the editor's light theme (`theme="light"`).
 
+## Building Git dependencies
+
+`npm install` (or `npm ci` with an up-to-date lockfile) builds the unpublished Arazzo dependencies
+automatically during `prepare`. Git and the upstream projects' Node.js/npm build prerequisites are required.
+No sibling checkouts or global `npm link` registrations are needed.
+
+- ApiDOM is fetched from [YOU54F/apidom](https://github.com/YOU54F/apidom/tree/arazzo-support),
+  pinned to the revision in `vite/scripts/build-git-dependencies.js`.
+- Arazzo Viewer is fetched from [YOU54F/arazzo-viewer](https://github.com/YOU54F/arazzo-viewer/tree/arazzo),
+  pinned by its Git dependency in `package.json`.
+- Sources and build outputs live in the ignored `.git-dependencies` directory. The built ApiDOM workspace
+  packages and viewer are linked into this installation's `node_modules`, not the global npm prefix.
+
+To rebuild them explicitly, run `npm run build:git-deps`. To update a fork, change its pinned commit and
+run `npm install` again. Installing with `--ignore-scripts` skips these builds; run `npm run prepare`
+before starting or building the editor in that case.
+
 ## Limitations
 
 - Detection accepts any `1.x.y`, so a future 1.x is treated as Arazzo.
@@ -56,7 +73,6 @@ The viewer follows the editor's light theme (`theme="light"`).
 - The viewer still uses its own source-linking helpers for presentation. Diagnostics, runtime-reference completion
   and source-target hover use the shared ApiDOM resolver and target index.
 - Relative URLs still use the editor page's base URI, not the original imported document's URL.
-- The viewer is linked as a local dependency (`arazzo-viewer`, `file:../arazzo-viewer`) until it is published.
 
 ## Tests
 
